@@ -1,6 +1,6 @@
 ﻿using System;
 using Lab1ConsoleApp;
-public class HR 
+public class HR : HRDeaprtment
 {
 	DBItem<Group> dbGroup;
 	DBItem<Student> dbStudent;
@@ -54,4 +54,14 @@ public class HR
 			Console.WriteLine(g);
 		}
 	}
+
+	public void GetStudentAddressGroup()
+    {
+
+    }
+
+	public void GetGroupAmountOfStudents()
+    {
+
+    }
 }

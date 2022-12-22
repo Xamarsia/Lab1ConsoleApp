@@ -1,5 +1,6 @@
-﻿using Lab1ConsoleApp;
-class Program
+﻿namespace Lab1ConsoleApp
+{
+	class Program
     {
         static void Main(string[] args)
         {
@@ -24,10 +25,24 @@ class Program
 			dbSubject.AddItem(subject2);
 
 			HR hr = new HR(dbGroup, dbStudent);
-			hr.CreateStudent();
-			hr.GetGroups();
-			hr.GetStudents();
-			hr.GetGroupAmoutOfStudent();
+			//hr.CreateStudent();
+			//hr.GetGroups();
+			//hr.GetStudents();
+			//hr.GetGroupAmoutOfStudent();
+
+			GroupCRUDMenu groupCRUDMenu = new GroupCRUDMenu();
+			AddressCRUDMenu addressCRUDMenu = new AddressCRUDMenu();
+			StudentCRUDMenu studentCRUDMenu = new StudentCRUDMenu();
+			SubjectCRUDMenu subjectCRUDMenu = new SubjectCRUDMenu();
+			GroupSubjectCRUDMenu groupSubjectCRUDMenu = new GroupSubjectCRUDMenu();
+			Department department = new Department();
+
+			HRMenu hrMenu = new HRMenu(groupCRUDMenu, addressCRUDMenu, studentCRUDMenu, hr);
+			DepartmentMenu departmentMenu = new DepartmentMenu(subjectCRUDMenu, groupSubjectCRUDMenu, department);
+
+			MainMenu mainMenu = new MainMenu(hrMenu, departmentMenu);
+			mainMenu.Run();
+
 		}
 	}
-
+}

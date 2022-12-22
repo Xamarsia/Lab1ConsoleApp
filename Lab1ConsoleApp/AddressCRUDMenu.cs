@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Lab1ConsoleApp
+{
+    class AddressCRUDMenu
+    {
+
+        AddressCRUD addressCRUD = new AddressCRUD();
+
+        public void Run()
+        {
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine("1. Create");
+                Console.WriteLine("2. Read");
+                Console.WriteLine("3. Update");
+                Console.WriteLine("4. Delete");
+                Console.WriteLine("5. Exit");
+                int menuNumber = int.Parse(Console.ReadLine());
+                switch (menuNumber)
+                {
+                    case 1:
+                        addressCRUD.Create();
+                        break;
+                    case 2:
+                        addressCRUD.Read();
+                        break;
+                    case 3:
+                        addressCRUD.Update();
+                        break;
+                    case 4:
+                        addressCRUD.Delete();
+                        break;
+                    case 5:
+                        flag = false;
+                        break;
+                }
+            }
+        }
+
+    }
+}
