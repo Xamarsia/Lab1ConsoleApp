@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lab1ConsoleApp
+using Lab1ConsoleApp;
+public class GroupSubject : IId
 {
-    class GroupSubject : IID
-    {
+	public int ID { get; set; }
+	public string SubjectID { get; set; }
+	public string GroupID { get; set; }
 
-        public int ID { get; set; }
-        public int GroupID { get; set; }
-        public int SubjectID { get; set; }
+	public GroupSubject(string SubjectID, string GroupID)
+	{
+		this.SubjectID = SubjectID;
+		this.GroupID = GroupID;
+	}
 
-        public GroupSubject(int groupID, int subjectID)
-        {
-            GroupID = groupID;
-            SubjectID = subjectID;
-        }
-
-        public override string ToString()
-        {
-            return String.Format(ID + " " + GroupID + " " + SubjectID);
-        }
-    }
+	public override string ToString()
+	{
+		return String.Format(ID + " " + SubjectID + " " + GroupID);
+	}
 }

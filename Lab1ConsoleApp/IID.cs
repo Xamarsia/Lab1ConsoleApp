@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Lab1ConsoleApp
 {
-    interface IID
+    public interface IId
     {
-
         int ID { get; set; }
-
     }
 }

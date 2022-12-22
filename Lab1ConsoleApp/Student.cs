@@ -1,29 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lab1ConsoleApp
+using Lab1ConsoleApp;
+public class Student : IId
 {
-    class Student : IID
-    {
+	public int ID { get; set; }
+	public string Name { get; set; }
+	public string Surname { get; set; }
+	public int Age { get; set; }
+	public int GroupID { get; set; }
 
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-        public int GroupID { get; set; }
+	public Student(string Name, string Surname, int Age, int GroupID)
+	{
+		this.Name = Name;
+		this.Surname = Surname;
+		this.Age = Age;
+		this.GroupID = GroupID;
+	}
 
-        public Student(string name, string surname, int age, int groupID)
-        {
-            Name = name;
-            Surname = surname;
-            Age = age;
-            GroupID = groupID;
-        }
-
-        public override string ToString()
-        {
-            return String.Format(ID + " " + Name + " " + Surname + " " + Age + " " + GroupID);
-        }
-    }
+	public override string ToString()
+	{
+		return String.Format(ID + " " + Name + " " + Surname + " " + Age + " " + GroupID);
+	}
 }
