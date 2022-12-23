@@ -6,24 +6,31 @@ namespace Lab1ConsoleApp
 {
     class SubjectCRUD : CRUD
     {
+        DBItem<Subject> DBSubject;
+        public SubjectCRUD(DBItem<Subject> dBSubject)
+        {
+            DBSubject = dBSubject;
+        }
+
         public override void Create()
         {
-            Console.WriteLine("\tSubject created!");
+            Console.Write("Subject Name? : ");
+            string subjectName = Console.ReadLine();
+
+            Subject subject = new Subject(subjectName);
+            DBSubject.AddItem(subject);
         }
 
         public override void Delete()
         {
-            Console.WriteLine("\tSubject deleted!");
         }
 
         public override void Read()
         {
-            Console.WriteLine("\tSubject readed!");
         }
 
         public override void Update()
         {
-            Console.WriteLine("\tSubject updated!");
         }
     }
 }

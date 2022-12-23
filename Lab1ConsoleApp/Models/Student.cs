@@ -20,4 +20,9 @@ public class Student : IId
 	{
 		return String.Format(ID + " " + Name + " " + Surname + " " + Age + " " + GroupID);
 	}
+
+    public string getInfo()
+    {
+        return String.Format(Name + " " + Surname + " " + Age);
+    }
 }

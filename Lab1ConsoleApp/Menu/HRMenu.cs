@@ -25,6 +25,7 @@ namespace Lab1ConsoleApp
             bool flag = true;
             while (flag)
             {
+                Console.Clear();
                 Console.WriteLine("1. Group CRUD");
                 Console.WriteLine("2. Address CRUD");
                 Console.WriteLine("3. Student CRUD");
@@ -48,18 +49,28 @@ namespace Lab1ConsoleApp
                         studentCRUDMenu.Run();
                         break;
                     case 4:
-                        hr.GetStudents();
+                        hr.GetStudentAddressGroup();
+                        Console.ReadKey();
                         break;
                     case 5:
                         hr.GetGroupAmoutOfStudent();
+                        Console.ReadKey();
                         break;
                     case 6:
+                        hr.GetGroupStudent();
+                        Console.ReadKey();
                         break;
                     case 7:
+                        hr.GetStudentGroupSubject();
+                        Console.ReadKey();
                         break;
                     case 8:
+                        hr.GetStudents();
+                        Console.ReadKey();
                         break;
                     case 9:
+                        hr.GetGroups();
+                        Console.ReadKey();
                         break;
                     case 10:
                         flag = false;

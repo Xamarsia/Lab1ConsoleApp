@@ -4,10 +4,15 @@ using System.Text;
 
 namespace Lab1ConsoleApp
 {
-    class GroupCRUDMenu
+    public class GroupCRUDMenu
     {
-        GroupCRUD groupCRUD  = new GroupCRUD();
 
+        GroupCRUD groupCRUD;
+        public GroupCRUDMenu(DBItem<Group> dBGroup)
+        {
+            groupCRUD = new GroupCRUD(dBGroup);
+        }
+        
         public void Run()
         {
             bool flag = true;
@@ -39,6 +44,5 @@ namespace Lab1ConsoleApp
                 }
             }
         }
-
     }
 }

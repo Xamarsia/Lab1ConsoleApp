@@ -21,6 +21,7 @@ namespace Lab1ConsoleApp
             bool flag = true;
             while(flag)
             {
+                Console.Clear();
                 Console.WriteLine("1. HR");
                 Console.WriteLine("2. Deparment");
                 Console.WriteLine("3. Exit");

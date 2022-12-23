@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace Lab1ConsoleApp
 {
-    class StudentCRUDMenu
+    public class AddressCRUDMenu
     {
-
-        StudentCRUD studentCRUD = new StudentCRUD();
+        AddressCRUD addressCRUD;
+        public AddressCRUDMenu(DBItem<Adress> dBAddress)
+        {
+            addressCRUD = new AddressCRUD(dBAddress);
+        }
 
         public void Run()
         {
@@ -23,16 +27,16 @@ namespace Lab1ConsoleApp
                 switch (menuNumber)
                 {
                     case 1:
-                        studentCRUD.Create();
+                        addressCRUD.Create();
                         break;
                     case 2:
-                        studentCRUD.Read();
+                        addressCRUD.Read();
                         break;
                     case 3:
-                        studentCRUD.Update();
+                        addressCRUD.Update();
                         break;
                     case 4:
-                        studentCRUD.Delete();
+                        addressCRUD.Delete();
                         break;
                     case 5:
                         flag = false;
@@ -40,5 +44,6 @@ namespace Lab1ConsoleApp
                 }
             }
         }
+
     }
 }

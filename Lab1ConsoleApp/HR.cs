@@ -1,32 +1,34 @@
 ﻿using System;
 using Lab1ConsoleApp;
+using System.Collections.Generic;
+using ConsoleTables;
+
 public class HR : HRDeaprtment
 {
-	DBItem<Group> dbGroup;
-	DBItem<Student> dbStudent;
-
-	public HR(DBItem<Group> dbGroup, DBItem<Student> dbStudent)
+	DB db;
+	public HR(DB db)
 	{
-		this.dbGroup = dbGroup;
-		this.dbStudent = dbStudent;
+		this.db = db;
 	}
 	public void GetGroupAmoutOfStudent()
 	{
-		int summ = 0;
-		foreach (Group g in dbGroup.Items)
+        var table = new ConsoleTable("Group", "Amount of students");
+        int summ = 0;
+		foreach (Group g in db.DBGroup.Items)
 		{
-			Console.Write(g);
-			foreach (Student s in dbStudent.Items)
+			foreach (Student s in db.DBStudent.Items)
 			{
 				if (g.ID == s.GroupID)
 				{
 					summ++;
 				}
 			}
-			Console.WriteLine(" " + summ);
+			table.AddRow(g.getInfo(), summ);
+
 			summ = 0;
 		}
-	}
+        table.Write();
+    }
 	public void CreateStudent()
     {
 		Console.Write("Name?: ");
@@ -38,30 +40,121 @@ public class HR : HRDeaprtment
 		Console.Write("GroupID?: ");
 		int groupID = int.Parse(Console.ReadLine());
 		Student student = new Student(name, surname, age, groupID);
-		dbStudent.AddItem(student);
+		db.DBStudent.AddItem(student);
     }
 	public void GetStudents()
 	{
-		foreach (Student s in dbStudent.Items)
+        var table = new ConsoleTable("Name", "Surname", "Age");
+        foreach (Student s in db.DBStudent.Items)
 		{
-			Console.WriteLine(s);
+            table.AddRow(s.Name, s.Surname, s.Age);
 		}
-	}
+        table.Write();
+    }
 	public void GetGroups()
 	{
-		foreach (Group g in dbGroup.Items)
+        var table = new ConsoleTable("ID", "Group");
+        foreach (Group g in db.DBGroup.Items)
 		{
-			Console.WriteLine(g);
+            table.AddRow(g.ID, g.GroupName);
 		}
-	}
+        table.Write();
+    }
 
 	public void GetStudentAddressGroup()
     {
+        var table = new ConsoleTable("Student", "Adress", "Group");
 
+        List<Student> students = db.DBStudent.Items;
+		foreach(Student s in students)
+        {
+			String student = s.getInfo();
+            String adress = "";
+            String group = "";
+
+			List<Adress> addresses = db.DBAddress.Items;
+			foreach(Adress a in addresses)
+            {
+				if(a.StudentID == s.ID)
+                {
+                    adress = a.getInfo();
+                }
+            }
+			List<Group> groups = db.DBGroup.Items;
+			foreach(Group g in groups)
+            {
+				if(s.GroupID == g.ID)
+                {
+                    group = g.getInfo();
+                }
+            }
+			table.AddRow(student, adress, group);
+        }
+        table.Write();
     }
 
-	public void GetGroupAmountOfStudents()
+    public void GetStudentGroupSubject()
     {
+        var table = new ConsoleTable("Group", "Student", "Subject");
 
+        List<Student> students = db.DBStudent.Items;
+        foreach (Student st in students)
+        {
+            String student = st.getInfo();
+            String group = "";
+            String subject = "";
+
+            List<GroupSubject> groupSubject = db.DBGroupSubject.Items;
+            List<Group> groups = db.DBGroup.Items;
+            List<Subject> subjects = db.DBSubject.Items;
+            foreach (GroupSubject gs in groupSubject)
+            {
+                if(st.GroupID == gs.GroupID)
+                {
+                    foreach (Group g in groups)
+                    {
+                        if (gs.GroupID == g.ID)
+                        {
+                            group = g.getInfo();
+                        }
+                    }
+
+                    foreach (Subject s in subjects)
+                    {
+                        if (gs.SubjectID == s.ID)
+                        {
+                            subject = s.getInfo();
+                            table.AddRow(group, student, subject);
+                        }
+
+                    }
+                }
+            }
+           
+        }
+        table.Write();
+    }
+
+    public void GetGroupStudent()
+    {
+        var table = new ConsoleTable("Group", "Student");
+
+        List<Student> students = db.DBStudent.Items;
+        foreach (Student s in students)
+        {
+            String student = s.getInfo();
+            String group = "";
+
+            List<Group> groups = db.DBGroup.Items;
+            foreach (Group g in groups)
+            {
+                if (s.GroupID == g.ID)
+                {
+                    group = g.getInfo();
+                }
+            }
+            table.AddRow(group, student);
+        }
+        table.Write();
     }
 }

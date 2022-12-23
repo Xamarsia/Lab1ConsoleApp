@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1ConsoleApp
 {
-    internal class SubjectCRUDMenu
+    public class StudentCRUDMenu
     {
-        SubjectCRUD subjectCRUD = new SubjectCRUD();
+        StudentCRUD studentCRUD;
+        public StudentCRUDMenu(DBItem<Student> dBStudent)
+        {
+            studentCRUD = new StudentCRUD(dBStudent);
+        }
 
         public void Run()
         {
@@ -24,16 +26,16 @@ namespace Lab1ConsoleApp
                 switch (menuNumber)
                 {
                     case 1:
-                        subjectCRUD.Create();
+                        studentCRUD.Create();
                         break;
                     case 2:
-                        subjectCRUD.Read();
+                        studentCRUD.Read();
                         break;
                     case 3:
-                        subjectCRUD.Update();
+                        studentCRUD.Update();
                         break;
                     case 4:
-                        subjectCRUD.Delete();
+                        studentCRUD.Delete();
                         break;
                     case 5:
                         flag = false;

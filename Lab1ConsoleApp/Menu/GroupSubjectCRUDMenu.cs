@@ -4,10 +4,14 @@ using System.Text;
 
 namespace Lab1ConsoleApp
 {
-    class GroupSubjectCRUDMenu
+    public class GroupSubjectCRUDMenu
     {
 
-        GroupSubjectCRUD groupSubjectCRUD = new GroupSubjectCRUD();
+        GroupSubjectCRUD groupSubjectCRUD;
+        public GroupSubjectCRUDMenu(DBItem<GroupSubject> dBGroupSubject)
+        {
+            GroupSubjectCRUD groupSubjectCRUD = new GroupSubjectCRUD(dBGroupSubject);
+        }
 
         public void Run()
         {

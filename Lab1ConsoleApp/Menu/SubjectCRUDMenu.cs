@@ -4,10 +4,14 @@ using System.Text;
 
 namespace Lab1ConsoleApp
 {
-    class AddressCRUDMenu
+    public class SubjectCRUDMenu
     {
+        SubjectCRUD subjectCRUD;
 
-        AddressCRUD addressCRUD = new AddressCRUD();
+        public SubjectCRUDMenu(DBItem<Subject> dBSubject)
+        {
+            subjectCRUD = new SubjectCRUD(dBSubject);
+        }
 
         public void Run()
         {
@@ -23,16 +27,16 @@ namespace Lab1ConsoleApp
                 switch (menuNumber)
                 {
                     case 1:
-                        addressCRUD.Create();
+                        subjectCRUD.Create();
                         break;
                     case 2:
-                        addressCRUD.Read();
+                        subjectCRUD.Read();
                         break;
                     case 3:
-                        addressCRUD.Update();
+                        subjectCRUD.Update();
                         break;
                     case 4:
-                        addressCRUD.Delete();
+                        subjectCRUD.Delete();
                         break;
                     case 5:
                         flag = false;
@@ -40,6 +44,5 @@ namespace Lab1ConsoleApp
                 }
             }
         }
-
     }
 }

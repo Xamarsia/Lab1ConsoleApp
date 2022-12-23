@@ -14,4 +14,11 @@ public class Group : IId
 	{
 		return String.Format(ID + " " + GroupName);
 	}
+
+	public string getInfo()
+	{
+        return GroupName;
+    }
+
+
 }

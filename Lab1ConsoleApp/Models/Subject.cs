@@ -15,4 +15,10 @@ public class Subject:IId
 	{
 		return String.Format(ID + " " + SubjectName);
 	}
+
+    public string getInfo()
+    {
+        return String.Format(SubjectName);
+    }
+
 }
