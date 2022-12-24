@@ -23,6 +23,7 @@ namespace Lab1ConsoleApp
             bool flag = true;
             while(flag)
             {
+                Console.Clear();
                 Console.WriteLine("1. Subject CRUD");
                 Console.WriteLine("2. GroupSubject CRUD");
                 Console.WriteLine("3. GetGroupHoursAmount");
@@ -42,16 +43,28 @@ namespace Lab1ConsoleApp
                         groupSubjectCRUDMenu.Run();
                         break;
                     case 3:
+                        department.GetGroupHoursAmount();
+                        Console.ReadKey();
                         break;
                     case 4:
+                        department.GetGroupSubject();
+                        Console.ReadKey();
                         break;
                     case 5:
+                        department.GetGroupStudent();
+                        Console.ReadKey();
                         break;
                     case 6:
+                        department.GetStudentGroupSubject();
+                        Console.ReadKey();
                         break;
                     case 7:
+                        department.GetStudents();
+                        Console.ReadKey();
                         break;
                     case 8:
+                        department.GetGroups();
+                        Console.ReadKey();
                         break;
                     case 9:
                         flag = false;

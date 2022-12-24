@@ -44,10 +44,10 @@ public class HR : HRDeaprtment
     }
 	public void GetStudents()
 	{
-        var table = new ConsoleTable("Name", "Surname", "Age");
+        var table = new ConsoleTable("ID", "Name", "Surname", "Age");
         foreach (Student s in db.DBStudent.Items)
 		{
-            table.AddRow(s.Name, s.Surname, s.Age);
+            table.AddRow(s.ID, s.Name, s.Surname, s.Age);
 		}
         table.Write();
     }

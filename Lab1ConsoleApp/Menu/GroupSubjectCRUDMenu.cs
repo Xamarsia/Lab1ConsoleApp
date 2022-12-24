@@ -10,7 +10,7 @@ namespace Lab1ConsoleApp
         GroupSubjectCRUD groupSubjectCRUD;
         public GroupSubjectCRUDMenu(DBItem<GroupSubject> dBGroupSubject)
         {
-            GroupSubjectCRUD groupSubjectCRUD = new GroupSubjectCRUD(dBGroupSubject);
+            groupSubjectCRUD = new GroupSubjectCRUD(dBGroupSubject);
         }
 
         public void Run()

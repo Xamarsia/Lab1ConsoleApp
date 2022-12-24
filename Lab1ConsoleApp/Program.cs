@@ -8,18 +8,13 @@ namespace Lab1ConsoleApp
         {
             DB db = new DB();
             HR hr = new HR(db);
-            //hr.GetStudentAddressGroup();
-            //hr.CreateStudent();
-            //hr.GetGroups();
-            //hr.GetStudents();
-            //hr.GetGroupAmoutOfStudent();
 
             GroupCRUDMenu groupCRUDMenu = new GroupCRUDMenu(db.DBGroup);
             AddressCRUDMenu addressCRUDMenu = new AddressCRUDMenu(db.DBAddress);
             StudentCRUDMenu studentCRUDMenu = new StudentCRUDMenu(db.DBStudent);
             SubjectCRUDMenu subjectCRUDMenu = new SubjectCRUDMenu(db.DBSubject);
             GroupSubjectCRUDMenu groupSubjectCRUDMenu = new GroupSubjectCRUDMenu(db.DBGroupSubject);
-            Department department = new Department();
+            Department department = new Department(db);
 
             HRMenu hrMenu = new HRMenu(groupCRUDMenu, addressCRUDMenu, studentCRUDMenu, hr);
             DepartmentMenu departmentMenu = new DepartmentMenu(subjectCRUDMenu, groupSubjectCRUDMenu, department);

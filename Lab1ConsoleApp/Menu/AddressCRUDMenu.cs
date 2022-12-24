@@ -30,7 +30,7 @@ namespace Lab1ConsoleApp
                         addressCRUD.Create();
                         break;
                     case 2:
-                        addressCRUD.Read();
+                        addressCRUD.Read();;
                         break;
                     case 3:
                         addressCRUD.Update();
