@@ -19,6 +19,4 @@ public class Group : IId
 	{
         return GroupName;
     }
-
-
 }

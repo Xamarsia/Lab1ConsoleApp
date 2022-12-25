@@ -14,6 +14,45 @@ namespace Lab1ConsoleApp
             this.db = db;
         }
 
+        public void GetStudentInformation()
+        {
+            var table = new ConsoleTable("Student", "Adress", "Group", "Subject");
+            foreach (Student s in db.DBStudent.Items)
+            {
+                String student = s.getInfo();
+                String adress = "";
+                foreach (Adress a in db.DBAddress.Items)
+                {
+                    if (a.StudentID == s.ID)
+                    {
+                        adress = a.getInfo();
+                    }
+                }
+                foreach (Group g in db.DBGroup.Items)
+                {
+                    if (g.ID == s.GroupID)
+                    {
+                        String group = g.getInfo();
+                        foreach (GroupSubject gs in db.DBGroupSubject.Items)
+                        {
+                            if (gs.GroupID == g.ID)
+                            {
+                                foreach (Subject sub in db.DBSubject.Items)
+                                {
+                                    if (sub.ID == gs.SubjectID)
+                                    {
+                                        table.AddRow(student, adress, group,  sub.getInfo());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            table.Write();
+        }
+
+
         public void GetStudents()
         {
             var table = new ConsoleTable("ID", "Name", "Surname", "Age");
