@@ -1,22 +1,23 @@
-﻿using System;
-using Lab1ConsoleApp;
-public class Group : IId
+﻿namespace model
 {
-	public int ID { get; set; }
-	public string GroupName { get; set; }
-
-	public Group(string GroupName)
+	public class Group : IId
 	{
-		this.GroupName = GroupName;
+		public int ID { get; set; }
+		public string GroupName { get; set; }
+
+		public Group(string GroupName)
+		{
+			this.GroupName = GroupName;
+		}
+
+		public override string ToString()
+		{
+			return String.Format(ID + " " + GroupName);
+		}
+
+		public string getInfo()
+		{
+			return GroupName;
+		}
 	}
-
-	public override string ToString()
-	{
-		return String.Format(ID + " " + GroupName);
-	}
-
-	public string getInfo()
-	{
-        return GroupName;
-    }
 }

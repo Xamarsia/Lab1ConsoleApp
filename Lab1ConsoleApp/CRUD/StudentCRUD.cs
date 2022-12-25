@@ -1,9 +1,7 @@
 ﻿using ConsoleTables;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using model;
 
-namespace Lab1ConsoleApp
+namespace CRUD
 {
     class StudentCRUD : CRUD
     {

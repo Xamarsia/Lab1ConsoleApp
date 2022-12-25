@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CRUD;
+using model;
 
-namespace Lab1ConsoleApp
+namespace menu
 {
     public class SubjectCRUDMenu
     {

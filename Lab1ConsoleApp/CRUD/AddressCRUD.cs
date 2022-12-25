@@ -1,10 +1,7 @@
 ﻿using ConsoleTables;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
+using model;
 
-namespace Lab1ConsoleApp
+namespace CRUD
 {
     class AddressCRUD : CRUD
     {

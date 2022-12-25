@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using hrDepartment;
 
-namespace Lab1ConsoleApp
+namespace menu
 {
     class DepartmentMenu
     {

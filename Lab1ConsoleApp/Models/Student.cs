@@ -1,28 +1,29 @@
-﻿using System;
-using Lab1ConsoleApp;
-public class Student : IId
+﻿namespace model
 {
-	public int ID { get; set; }
-	public string Name { get; set; }
-	public string Surname { get; set; }
-	public int Age { get; set; }
-	public int GroupID { get; set; }
-
-	public Student(string Name, string Surname, int Age, int GroupID)
+	public class Student : IId
 	{
-		this.Name = Name;
-		this.Surname = Surname;
-		this.Age = Age;
-		this.GroupID = GroupID;
-	}
+		public int ID { get; set; }
+		public string Name { get; set; }
+		public string Surname { get; set; }
+		public int Age { get; set; }
+		public int GroupID { get; set; }
 
-	public override string ToString()
-	{
-		return String.Format(ID + " " + Name + " " + Surname + " " + Age + " " + GroupID);
-	}
+		public Student(string Name, string Surname, int Age, int GroupID)
+		{
+			this.Name = Name;
+			this.Surname = Surname;
+			this.Age = Age;
+			this.GroupID = GroupID;
+		}
 
-    public string getInfo()
-    {
-        return String.Format(Name + " " + Surname + " " + Age);
-    }
+		public override string ToString()
+		{
+			return String.Format(ID + " " + Name + " " + Surname + " " + Age + " " + GroupID);
+		}
+
+		public string getInfo()
+		{
+			return String.Format(Name + " " + Surname + " " + Age);
+		}
+	}
 }

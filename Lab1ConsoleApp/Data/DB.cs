@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using model;
 
-namespace Lab1ConsoleApp
+namespace database
 {
     public class DB
     {

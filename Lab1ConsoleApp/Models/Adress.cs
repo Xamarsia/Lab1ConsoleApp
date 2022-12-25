@@ -1,24 +1,25 @@
-﻿using System;
-using Lab1ConsoleApp;
-public class Adress : IId
+﻿namespace model
 {
-	public int ID { get; set; }
-	public string StudentAdress { get; set; }
-	public int StudentID { get; set; }
-
-	public Adress(string StudentAdress, int StudentID)
+	public class Adress : IId
 	{
-		this.StudentAdress = StudentAdress;
-		this.StudentID = StudentID;
-	}
+		public int ID { get; set; }
+		public string StudentAdress { get; set; }
+		public int StudentID { get; set; }
 
-	public override string ToString()
-	{
-		return String.Format(ID + " " + StudentAdress + " " + StudentID);
-	}
+		public Adress(string StudentAdress, int StudentID)
+		{
+			this.StudentAdress = StudentAdress;
+			this.StudentID = StudentID;
+		}
 
-    public string getInfo()
-    {
-        return String.Format(StudentAdress);
-    }
+		public override string ToString()
+		{
+			return String.Format(ID + " " + StudentAdress + " " + StudentID);
+		}
+
+		public string getInfo()
+		{
+			return String.Format(StudentAdress);
+		}
+	}
 }

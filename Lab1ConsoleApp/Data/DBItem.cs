@@ -1,36 +1,37 @@
-﻿using System.Collections.Generic;
-using Lab1ConsoleApp;
-public class DBItem<T> where T: IId
+﻿namespace model
 {
-	private int count = 1;
-	public List<T> Items { get; set; }
-
-	public DBItem()
+	public class DBItem<T> where T: IId
 	{
-		this.Items = new List<T>();
-	}
+		private int count = 1;
+		public List<T> Items { get; set; }
 
-	public void AddItem(T item)
-	{
-		item.ID = count++;
-		Items.Add(item);
-	}
-
-	public bool DeleteItem(int itemID)
-	{
-		if (Items.Count == 0 || itemID > count)
+		public DBItem()
 		{
-			return false;
-		} else
-		{
-			for (int i = 0; i < Items.Count; i++)
-			{ 
-				if (Items[i].ID == itemID) {
-                    Items.RemoveAt(i);
-					return true;
-                }
-			}	
+			this.Items = new List<T>();
 		}
-        return false;
-    }
+
+		public void AddItem(T item)
+		{
+			item.ID = count++;
+			Items.Add(item);
+		}
+
+		public bool DeleteItem(int itemID)
+		{
+			if (Items.Count == 0 || itemID > count)
+			{
+				return false;
+			} else
+			{
+				for (int i = 0; i < Items.Count; i++)
+				{ 
+					if (Items[i].ID == itemID) {
+						Items.RemoveAt(i);
+						return true;
+					}
+				}	
+			}
+			return false;
+		}
+	}
 }

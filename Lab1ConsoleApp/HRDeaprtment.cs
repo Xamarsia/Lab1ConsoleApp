@@ -1,31 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lab1ConsoleApp
+﻿namespace hrDepartment
 {
-    public class HRDeaprtment
+    public abstract class HRDeaprtment
     {
 
-        public void GetGroupStudent()
-        {
+        public abstract void GetGroupStudent();
 
-        }
 
-        public void GetStudentGroupSubject()
-        {
+        public abstract void GetStudentGroupSubject();
 
-        }
 
-        public void GetStudent()
-        {
+        public abstract void GetStudents();
 
-        }
-
-        public void GetGroup()
-        {
-
-        }
-
+        public abstract void GetGroups();
     }
 }

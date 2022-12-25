@@ -1,9 +1,8 @@
 ﻿using ConsoleTables;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using database;
+using model;
 
-namespace Lab1ConsoleApp
+namespace hrDepartment
 {
     public class Department : HRDeaprtment
     {
@@ -53,7 +52,7 @@ namespace Lab1ConsoleApp
         }
 
 
-        public void GetStudents()
+        public override void GetStudents()
         {
             var table = new ConsoleTable("ID", "Name", "Surname", "Age");
             foreach (Student s in db.DBStudent.Items)
@@ -62,7 +61,7 @@ namespace Lab1ConsoleApp
             }
             table.Write();
         }
-        public void GetGroups()
+        public override void GetGroups()
         {
             var table = new ConsoleTable("ID", "Group");
             foreach (Group g in db.DBGroup.Items)
@@ -72,7 +71,7 @@ namespace Lab1ConsoleApp
             table.Write();
         }
 
-        public void GetStudentGroupSubject()
+        public override void GetStudentGroupSubject()
         {
             var table = new ConsoleTable("Group", "Student", "Subject");
 
@@ -113,7 +112,7 @@ namespace Lab1ConsoleApp
             table.Write();
         }
 
-        public void GetGroupStudent()
+        public override void GetGroupStudent()
         {
             var table = new ConsoleTable("Group", "Student");
 
